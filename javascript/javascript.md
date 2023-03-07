@@ -2,6 +2,10 @@
 
 ## Basic JavaScript
 
+- JS is a **dynamic** language with **weakly typed** variables
+	- Dynamic = variables can be (re-)assigned values of any type without restriction
+	- Weakly typed = when an operation involves mismatched types, performs an implicit conversion instead of throwing errors
+
 - Eight different data types ([MDN page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures))
 	- `undefined` (singleton)
 		- It is the initial value for variables that are declared but not initialized
@@ -10,25 +14,27 @@
 	- `null` (singleton)
 	- `boolean` (`true`, `false`)
 	- `string`
+		- Immuteable
 		- `+` concatenates
+		- `+=` concatenates and re-binds to existing variable
+		- Must start/end with `"` (double quote) or `'` (single)
+		- Escaping with `\` (for quotes, backslash)
+		- Special character codes: `\n`, `\t`, `\r`, `\b` (word boundary?), `\f` (form feed?))
+		- length: `{string}.length` property
+		- indexing: `{string}[{index}]` (it's 0-based!)
 	- `symbol`
 	- `bigint`
 	- `number` (floating point)
-		- `+` adds, `-` subtracts, `variable++;` increments by 1, `variable--;` decrements by 1
-		- `*` multiplies, `/` divides, `%` calculates remainder (on integers AND floating point numbers)
 	- `object`
 
-	- JS is a **dynamic** language with **weakly typed** variables
-		- Dynamic = variables can be (re-)assigned values of any type without restriction
-		- Weakly typed = when an operation involves mismatched types, performs an implicit conversion instead of throwing errors
-
 - Variables
-	- Act as a label upon data?
+	- Act as a label upon data (*not sure where the similarity with Python's stops though, if ever*)
 	- Declaration
 		```javascript
-		var variable;  // variable can be overwritten by assignment or another `var` declaration (not `let`)
-		let variable;  // variable can be overwritten by assignment, but not by `var` or `let` declarations
+		var variable;    // variable can be overwritten by assignment or another `var` declaration (not `let`)
+		let variable;    // variable can be overwritten by assignment, but not by `var` or `let` declarations
 		const VARIABLE;  // variable is immuteable (cannot be overwritten by assignment, `var`, or `let`)
+		variable;		 // it be declared without any declaration keyword??
 		```
 		- Declared variable without initialization points to `undefined`.
 		
@@ -45,6 +51,68 @@
 	- Variables are case-sensitive.  Recommended variable naming conventions:
 		- **camelCase** for mutable values
 		- **UPPER_CASE** for immutable values / constants
+
+- Operators ([w3schools JS operators reference](https://www.w3schools.com/js/js_operators.asp))
+	- Arithmetic
+		- `+` adds, `-` subtracts
+		- `variable++;` increments by 1, `variable--;` decrements by 1
+		- `*` multiplies, `/` divides, `%` calculates remainder (on integers AND floating point numbers)
+		- Compound assignment: `+=`, `-=`, `*=`, `/=`, `%=` 
+	- Comparison
+		- `==` and `!=` check (in)equality and attempt type conversion (normalization)
+		- `===` and `!==` check "strict equality".  No type conversion, arguments must be same type/value.
+		- `>`, `>=`
+		- `<`, `<=`
+	- Logical
+		- `&&` AND
+		- `||` OR
+		- `!` NOT
+
+- Arrays
+	- Mutable, even with `const` declaration
+	- Can contain mixed types
+	- Initialization:
+		```javascript
+		const/let/var myArray = [];
+		const/let/var myArray = ["string", integer, floatingpoint, []];
+		```
+	- Indexing: `myArray[idx0][idx1][...]`
+	- Methods
+		- `{array}.push({param1}, ...)` - adds one or more arguments to end of array
+		- `{array}.pop()` - pops from end
+		- `{array}.shift()` - pops from front
+		- `{array}.unshift({param1}, ...)` - appends to front of array
+
+- Functions
+	- Creation:
+		```javascript
+		function functionName(param1, param2, ) {
+			// contents
+			return something; // optional; by default returns undefined
+		}
+		```
+	- Invocation: `functionName(param1, param2)`
+
+- Scope
+	- Variables defined outside of a function have global scope
+	- Variables defined within a function have local/function scope
+		- Within a function, local variables take precedence over globals with the same name
+	- Variables defined within a function without the `let` or `const` keywords have global scope
+
+- Conditional Logic
+	- `if` statement
+		```javascript
+		if (true_condition) {
+			statement;
+		} else if (true_condition) {
+			statement;
+		} else if {  // can have as may `else if` as desired
+		
+		} else {
+			statement;
+		}
+		```
+	- `switch` statement
 
 ## Questions
 - Does assigning one variable equal to another copy or reference the underlying data?
