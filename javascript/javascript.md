@@ -1,6 +1,8 @@
 # Javascript Algorithms and Data Structures
 
 ## Basic JavaScript
+	Apparently, it was mostly ECMAScript 5 (ES5) features covered
+
 
 - JS is a **dynamic** language with **weakly typed** variables
 	- Dynamic = variables can be (re-)assigned values of any type without restriction
@@ -153,8 +155,73 @@
 		}
 
 		```
+	- Ternary operator
+		```javascript
+		condition ? statement_returned_if_true : statement_returned_if_false;
+		```
+		- They can be nested...
+			```javascript
+			condition1 ? cond1_true : condition2 ? cond1_false_cond2_true : cond1_false_cond2_false;
+			```
+			Apparently, should be formatted as follows:
+			```javascript
+			condition1 ? cond1_true
+				: condition2 ? cond1_false_cond2_true
+				: cond1_false_cond2_false
+			```
 
 - Loops
+	- while
+		```javascript
+		while (condition) {
+			statement;
+			...
+		}
+		```
+	- for
+		- Declared wit hthree optional expressions separated by semicolons: `for(a; b; c)
+			- `a` = initialization statement (`let i = 0`)
+			- `b` = condition statemtn (`i < 5`, `i < arr.length`)
+			- `c` = final expression (`i++`)
+			- another way of looking at it: {[start, stop), step}
+
+		```javascript
+		for (a; b; c) {
+			statement;
+			...
+		}
+		```
+	- do while (always executes once, and continues looping while condition is true)
+		```javascript
+		do {
+			statement;
+			...
+		} while (condition);
+		```
+
+- Some useful functions, presented during lessons
+	- `Math.random()` generates a random decimal number between [0, 1)
+	- `Math.floor()` rounds down to nearest whole number
+	- `parseInt({str}, radix)` turns specified string into integer of specified radix/base if possible, else `NaN`
+
+
+## ES6
+
+## Regular Expressions
+
+## Debugging
+
+## Basic Data Structures
+
+## Basic Algorithm Scripting
+
+## Object Oriented Programming
+
+## Functional Programming
+
+## Intermediate Algorithm Scripting
+
+
 
 ## Questions
 - Does assigning one variable equal to another copy or reference the underlying data?
