@@ -6,26 +6,42 @@
 	- Dynamic = variables can be (re-)assigned values of any type without restriction
 	- Weakly typed = when an operation involves mismatched types, performs an implicit conversion instead of throwing errors
 
-- Eight different data types ([MDN page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures))
-	- `undefined` (singleton)
-		- It is the initial value for variables that are declared but not initialized
-		- If a mathematical operation is performed between `undefined` and `number`, will get `NaN` (*Not a Number*)
-		- If a `string` is concatenated with `undefined`, resulting *string* = `"undefined"`
-	- `null` (singleton)
-	- `boolean` (`true`, `false`)
-	- `string`
-		- Immuteable
-		- `+` concatenates
-		- `+=` concatenates and re-binds to existing variable
-		- Must start/end with `"` (double quote) or `'` (single)
-		- Escaping with `\` (for quotes, backslash)
-		- Special character codes: `\n`, `\t`, `\r`, `\b` (word boundary?), `\f` (form feed?))
-		- length: `{string}.length` property
-		- indexing: `{string}[{index}]` (it's 0-based!)
-	- `symbol`
-	- `bigint`
-	- `number` (floating point)
-	- `object`
+- Data types
+	- There are apparently 8: ([MDN page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures))
+		- `undefined` (singleton)
+			- It is the initial value for variables that are declared but not initialized
+			- If a mathematical operation is performed between `undefined` and `number`, will get `NaN` (*Not a Number*)
+			- If a `string` is concatenated with `undefined`, resulting *string* = `"undefined"`
+		- `null` (singleton)
+		- `boolean` (`true`, `false`)
+		- `string`
+			- Immuteable
+			- `+` concatenates
+			- `+=` concatenates and re-binds to existing variable
+			- Must start/end with `"` (double quote) or `'` (single)
+			- Escaping with `\` (for quotes, backslash)
+			- Special character codes: `\n`, `\t`, `\r`, `\b` (word boundary?), `\f` (form feed?))
+			- length: `{string}.length` property
+			- indexing: `{string}[{index}]` (it's 0-based!)
+		- `symbol`
+		- `bigint`
+		- `number` (floating point)
+		- `object`
+			- mutable
+			- "Can be thought of as a key/value storage, like a dictionary"
+				- Keys = properties
+				-  properties can be set with strings, or directly as names (without any quotes) if they are strings.
+				- properties don't need to be strings, though (they are typecast to strings though)
+				- This means that an integer (ex: 5) and a string (ex: "5") will write TO THE SAME PROPERTY
+				- properties are accessed...
+					- with brackets: `myobject['property']`
+					- with dot: `myobject.property`
+				- properties can be added (and removed?) dynamically
+					- deletion: `delete myobject.property` or `delete myobject['property']`
+				- `myobject.hasOwnProperty(propname)` to check for existence of a property
+			- Can contain any other type of JS data structure (nested)
+				- nested access: combinations of `[]` and `.` (for arrays/objects)
+	- `typeof()` function returns the type of a literl/variable, *as a string*
 
 - Variables
 	- Act as a label upon data (*not sure where the similarity with Python's stops though, if ever*)
@@ -92,6 +108,7 @@
 		}
 		```
 	- Invocation: `functionName(param1, param2)`
+	- "return early pattern"
 
 - Scope
 	- Variables defined outside of a function have global scope
@@ -112,7 +129,32 @@
 			statement;
 		}
 		```
+		- The braces are only required for multi-line contents!
 	- `switch` statement
+		- Expressions are executed from the first matched `case` value until a `break` is encountered ("fall through")
+		- The variable / case comparisons are performed using strict equality (`===`)
+		- Can contain strings, unlike C++!
+		```javascript
+		switch (variable) {
+			case {one}:
+				statement;
+				break;
+			case {two}:
+				statement;
+				break;
+			case {three}:
+			case {four}:
+				statement;
+				break;
+		...
+			default:
+				statement;
+				break;
+		}
+
+		```
+
+- Loops
 
 ## Questions
 - Does assigning one variable equal to another copy or reference the underlying data?
