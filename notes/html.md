@@ -9,6 +9,12 @@
     - `title` element sets tab title
     - `meta` element used to set website metadata
         - `charset` attribute specifies character encoding (ex: `UTF-8`)
+        - self-closing
+    - `link`
+        - `rel="stylesheet"` + `href="..."` to specify which stylesheet to use
+        - self-closing
+    - > For the styling of the page to look similar on mobile as it does ona desktop or laptop, you need to add a `meta` element with a special `content` attribute.
+        - `<meta name="viewport" content="width=device-width, initial-scale=1.0" />`
 - `body`: for all visible content
 
 ### Visible Content (goes within `body`)
@@ -32,9 +38,23 @@
 - Content area identification (HTML5)
     - `<main>...</main>` identifies main content area
     - `<section>...</section>` identifies a distinct content section within main
+    - `<article>...</article>` "commonly contains multiple elements that have related information"
+        - Within freecodecamp cafe menu example, we used this element to group two `p` elements (one for menu item, the other for its price)
     - `<footer>...</footer>` goes at the very bottom
 
 - Comment: `<!-- Comment Text -->`
+
+
+### Special attributes
+
+- `id` identifies specific HTML elements uniquely
+- `class` can be used to group elements; more than one class can be applied to an element!
+
+### Non-semantic wrappers
+Do not have a specific semantic meaning.  If no other elements fit, use these.  Can be targeted with CSS (they are often used to group other elements)
+- `div`: blocking
+- `span`: inline
+
 
 ### Interactivity!  Web form
 
@@ -72,7 +92,3 @@
     - Inline element
     - When no attributes are specified, default behavior is to submit the form
     - `type="submit"` to clearly indicate it's a submission button
-
-### `id` attribute
-
-Identifies specific HTML elements uniquely
