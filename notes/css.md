@@ -21,6 +21,8 @@ selector {
 The "*selector*" *selects* which elements to apply the styling upon.
     - Type selectors: by element name (`elemen}`)
     - Class selectors: by class name (`.class-name`)
+    - Pseudo-selector: by element's state (`element:state`)
+        - ex: `a:visited`
 Selectors can be combined!
     - To have multiple selectors that all get the CSS rule
         - `selector1, selector2, ... , selectorN`
@@ -30,22 +32,49 @@ Selectors can be combined!
 ### Properties Demonstrated
 
 - `text-align: center`, `left`, `right`
+- `font-family: {font}, {fallback1}, ...`
+    - ex: `sans-serif`, `serif`, `Impact`
+    - Only a single font is required, but a comma-separated list will specify fallback(s) in case a particular font is not available within a browser
+- `font-style: italic`
+- `font-size: {size}`
+    - pixels (`px`)
+- `color: {color}`;
+    - By default, link that has not yet been clicked is blue and visited link is purple.
+    - By specifying a link color, it'll always be that color regardless of whether it has been clicked!
+
 - `background-color: brown` -> `burlywood`
     - the browser has built-in color lookup for basic colors
 - `background-image: url(...)`
-- `width: 300px`
-    - Can be specified in...
-        - pixels (`px`)
-        - percentage of parent element's width (`(0, 100]%`)
-- `margin-{left/right}: auto`
-    - Used this to center an element within the `body`
+
+- `width: {width}`, can be specified in...
+    - pixels (`px`)
+    - percentage of parent element's width (`(0, 100]%`)
+- `max-width: {width}`
+    - Specifies an upper limit for ratio-based widths
+
+- `height: {height}`
+    - Used it to change height of `hr` element
+
+The "box model" of an element: `margin` is the outside, then a `border`, then `padding`, then the actual `element`
+- `margin-{left/right/top/bottom}: {margin-size}`
+    - Used this to center an element within the `body` by specifying `left/right: auto`
+    - Specifies distance between it and other elements' margins
+    - Can be negative!!
+
+- `border-color: {color}`
+    - By default, each border line is 1px wide, so it adds to the shape its bordering
+    - If no `border-color` is specified, I think that means the border isn't rendered (`0px`)
+
 - `padding-{left/right/top/bottom}: 20px`
     - Adds padding to the each individual side of the HTML element (between it and its parent)
 - `padding: 20px`
     - Applies same padding to all 4 sides
+
 - `display: inline-block`
     - Used this to make two blocking elements (`p`) behave as inline
     - We ended up adjusting our HTML source: the `p` elements were previously on separate lines, but were moved to be on the same line with no space between them so that we could apply `width: 50%` on both (they are `text-align`ed to `left` and `right` respectively)
+    - Can also have value `block`
+
 
 ### Responsiveness (to different-sized web pages)
 

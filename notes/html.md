@@ -25,10 +25,15 @@
 - Importance/urgence: `<strong>...</strong>`
 
 - Image: `<img src="https://src/url..." alt="displayed if image doesn't load, or for screen reader">`
+    - > "like" inline elements
 - Figure: `<figure></figure>`, self-contained content.  Can have a caption.
 
 - Hyperlink (anchor): `<a href="https://dest/url..." target="...">Link text</a>`
     - `target="_blank"` will usually open the link in a new tab (user/browser configurable, can open new window) instead of default, which is to follow the link within the current tab
+    - States (addressable by CSS psuedo-selector):
+        - `visited` (already clicked)
+        - `hover` (mouse currently hovering)
+        - `active` (mouse currently clicking on the link)
 
 - Lists:
     - Unordered: `<ul>...</ul>`
@@ -43,6 +48,9 @@
     - `<footer>...</footer>` goes at the very bottom
 
 - Comment: `<!-- Comment Text -->`
+
+- Horizontal rule: `hr` (adds a horizontal line)
+    - Self-closing
 
 
 ### Special attributes
