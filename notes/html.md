@@ -7,7 +7,7 @@
     - `lang` attribute sets page language? ex: `lang="en"`
 - `head`
     - `title` element sets tab title
-    - `meta` element used to set website metadata
+    - `meta` element used to set website metadata - recommendation is one element per attribute
         - `charset` attribute specifies character encoding (ex: `UTF-8`)
         - self-closing
     - `link`
@@ -15,6 +15,7 @@
         - self-closing
     - > For the styling of the page to look similar on mobile as it does ona desktop or laptop, you need to add a `meta` element with a special `content` attribute.
         - `<meta name="viewport" content="width=device-width, initial-scale=1.0" />`
+            - This apparently makes the webpage "look the same on all devices"
 - `body`: for all visible content
 
 ### Visible Content (goes within `body`)
@@ -57,6 +58,7 @@
 
 - `id` identifies specific HTML elements uniquely
 - `class` can be used to group elements; more than one class can be applied to an element!
+    - `class="class1 class2 ..."`
 
 ### Non-semantic wrappers
 Do not have a specific semantic meaning.  If no other elements fit, use these.  Can be targeted with CSS (they are often used to group other elements)

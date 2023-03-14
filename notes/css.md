@@ -29,6 +29,33 @@ Selectors can be combined!
     - Descendant combinators
         - `selector1 selector2` - this selects all `selector2` that are nested in `selector1`
 
+### Colors
+
+- RGB (additive): `rgb(r, g, b)` function
+    - Primary colors
+        - `red`  = `rgb(255, 0, 0)`
+        - `blue` = `rgb(0, 0, 255)`
+        - `green` color keyword != `rgb(0, 255, 0)`; = `rgb(0, 127, 0)`
+    - Secondary colors (mix of two primaries at 1:1 ratio)
+        - `yellow`  = `rgb(255, 255, 0)`
+        - `cyan`    = `rgb(0, 255, 255)`
+        - `magenta` = `rgb(255, 0, 255)`
+    - Tertiary colors (mix of two primaries at 2:1 ratio)
+        - `orange`       = `rgb(255, 127, 0)`
+        - `springgreen`  = `rgb(0, 255, 127)`
+        - `violet`       = `rgb(127, 0, 255)`
+        - `chartreuse`   = `rgb(127, 255, 0)`
+        - `azure`        = `rgb(0, 127, 255)`
+        - `rose`         = `rgb(255, 0, 127)`
+    - White: RGB all max (for 8-bit color, all `255`)
+    - Black: RGB all `0`
+    - .
+        - ``  = `rgb()`
+
+- CMYK (subtractive)
+    - Secondary colors (combos of two primaries)
+    - Tertiary colors (combos of all three primaries)
+
 ### Properties Demonstrated
 
 - `text-align: center`, `left`, `right`
@@ -60,6 +87,9 @@ The "box model" of an element: `margin` is the outside, then a `border`, then `p
     - Used this to center an element within the `body` by specifying `left/right: auto`
     - Specifies distance between it and other elements' margins
     - Can be negative!!
+- `margin: {margin-size}` (shorthand property)
+    - *interesting - specifying `margin: auto` doesn't center the element top/bot; it stays at the top*
+- `margin: {top/bot} {left/right}` (shorthand)
 
 - `border-color: {color}`
     - By default, each border line is 1px wide, so it adds to the shape its bordering
@@ -67,8 +97,9 @@ The "box model" of an element: `margin` is the outside, then a `border`, then `p
 
 - `padding-{left/right/top/bottom}: 20px`
     - Adds padding to the each individual side of the HTML element (between it and its parent)
-- `padding: 20px`
+- `padding: 20px` (shorthand)
     - Applies same padding to all 4 sides
+- `padding: {top&bot} {left&right}`
 
 - `display: inline-block`
     - Used this to make two blocking elements (`p`) behave as inline
