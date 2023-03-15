@@ -68,25 +68,55 @@ Do not have a specific semantic meaning.  If no other elements fit, use these.  
 
 ### Interactivity!  Web form
 
-- Interactive form: `<form action="https://dest.url" name="..." placeholder="..."></form>`
+- Interactive form: `<form action="https://dest.url" name="..." placeholder="..." method="..."></form>`
     - Attributes:
         - `action` -- URL to which form data is sent
         - `name` -- allows the dest url to access data?  (**Not sure how this works yet**)
         - `required` (no value) - means it's required within the scope of current form
         - `placeholder` = prompt text
+        - `method` = how the data will be sent (HTTP POST vs GET)
 
+#### User Input Elements
 - Input element: `<input>` (self-closing, like `img`).  Goes within `form`
     - Inline element
     - Many types (selected using its `type` attribute)
         - `text` makes a word box (ENTER = submit)
+            - Browser default
+        - `email` only allows emails with `@` and `.` in the domain
+        - `password` hides the characters typed!  Apparently also warns user if site doesn't use HTTPS
+            - `minlength` sets minimum password length
+            - `pattern="{regex}"` allows for defining a regular expression - only passwords matching it are valid / accepted!
+        - `number`
+            - Only numbers allowed?
+            - `min="N"`
+            - `max="N"`
+        
         - `radio` for buttons!
             - ex: `<input type="radio"> option1`
             - When we want to make a form with multiple buttons, of which only one can be active at a time, give all of the input-radio-buttons the same `name` attribute
             - Specify lookup value using `value` attribute
         - `checkbox` for buttons for questions with more than one (or no) answer
+        
+        - `file`
+
+        - `submit` makes it a submission button.  `value="{text appears on button}"`, default text is "Submit Query"
     - Data from each input is associated with its `name`, and the data with its `value`
     - To be checked by default, use the `checked` attribute (no set value)
 
+- Button element: `<button>...</button>`
+    - Inline element
+    - When no attributes are specified, default behavior is to submit the form
+    - `type="submit"` to clearly indicate it's a submission button
+
+- `select` and `option`
+    - Like lists, but for forms as a dropdown!
+    - If no `value` property is specified within an `option`, the form will send the description text of the selected option upon submission (otherwise will submit the `value`)
+
+- `textarea` -- a multi-line text submission field!  Re-sizeable, and can be initialized with desired size
+    - `rows`, `cols` properties to configure initial size
+    - `placeholder` property defines placeholder text, displayed until user has entered at least one character
+
+#### Grouping elements
 - Label: `<label></label>` associates text with input element itself (when clicking text, triggers input)
     - Inline
     - ex: `<label><input type="radio"> option1</label>`
@@ -97,8 +127,3 @@ Do not have a specific semantic meaning.  If no other elements fit, use these.  
 - Fieldset: `<fieldset>...</fieldset>`, used to group related inputs/labels together within a web form
     - Blocking
 - Legend: `<legend></legend>` acts as a caption for the content in the fieldset element
-
-- Button element: `<button>...</button>`
-    - Inline element
-    - When no attributes are specified, default behavior is to submit the form
-    - `type="submit"` to clearly indicate it's a submission button

@@ -102,11 +102,20 @@ Selectors can be combined!
 
 - `opacity` property controls how much light passes through, `[0%, 100%]` or `[0.0, 1.0]`
 
-### Length
+### Sizes
+
+#### Length
 Can be expressed in...
 - Pixels (`px`)
 - Percentage (`%`)
     - Is it always of parent's width?
+
+#### Height
+- `vh` is a special unit called **v**iewport **h**eight, and always equals 1% of the viewport's height
+
+#### Font Size
+- `rem` = root `em` = relative to font size of HTML element
+    - Used in the `margin` property??  So it can be a general unit of size, then?
 
 ### Properties Demonstrated
 
