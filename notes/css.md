@@ -19,10 +19,14 @@ selector {
 }
 ```
 The "*selector*" *selects* which elements to apply the styling upon.
-    - Type selectors: by element name (`elemen}`)
+    - Type selectors: by element name (`element`)
     - Class selectors: by class name (`.class-name`)
-    - Pseudo-selector: by element's state (`element:state`)
-        - ex: `a:visited`
+    - Attribute selectors: by element attribute value (`element[attr="value"]`)
+    - Pseudo-selectors:
+        - by element's state (`element:state`)
+            -   ex: `a:visited`
+        - by element's position in DOM (`element:last-of-type`)
+    
 Selectors can be combined!
     - To have multiple selectors that all get the CSS rule
         - `selector1, selector2, ... , selectorN`
@@ -102,16 +106,19 @@ Selectors can be combined!
 
 - `opacity` property controls how much light passes through, `[0%, 100%]` or `[0.0, 1.0]`
 
+### Special values
+- `none` sets stuff to 0
+- `unset` removes earlier rules and goes back to some kind of default?
+
 ### Sizes
 
-#### Length
+#### Distance
 Can be expressed in...
 - Pixels (`px`)
 - Percentage (`%`)
     - Is it always of parent's width?
-
-#### Height
 - `vh` is a special unit called **v**iewport **h**eight, and always equals 1% of the viewport's height
+- `vw` is a special unit called **v**iewport **w**idth, and always equals 1% of the viewport's width
 
 #### Font Size
 - `rem` = root `em` = relative to font size of HTML element
@@ -141,9 +148,12 @@ Sizing:
     - pixels (`px`) or percentage of parent element's width (`(0, 100]%`)
 - `max-width: {length}`
     - Specifies an upper limit for ratio-based widths
+- `min-width: {length}`
 
 - `height: {length}`
     - Used it to change height of `hr` element
+- `min-height`
+- `max-height`
 
 The "box model" of an element: `margin` is the outside, then a `border`, then `padding`, then the actual `element`
 - `margin-{left/right/top/bottom}: {length}`
@@ -163,8 +173,8 @@ The "box model" of an element: `margin` is the outside, then a `border`, then `p
 - `border-{left/right/top/bottom}-style: {style}`
     - `solid`
     - `double`
-
-- `border-{left/right/top/bottom}: width style color` (shorthand)
+- `border{-{left/right/top/bottom}}: width style color` (shorthand)
+- `border: none` removes the border entirely
 
 - `padding-{left/right/top/bottom}: {length-unit}`
     - Adds padding to the each individual side of the HTML element (between it and its parent)

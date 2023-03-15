@@ -100,7 +100,6 @@ Do not have a specific semantic meaning.  If no other elements fit, use these.  
         - `file`
 
         - `submit` makes it a submission button.  `value="{text appears on button}"`, default text is "Submit Query"
-    - Data from each input is associated with its `name`, and the data with its `value`
     - To be checked by default, use the `checked` attribute (no set value)
 
 - Button element: `<button>...</button>`
@@ -115,6 +114,9 @@ Do not have a specific semantic meaning.  If no other elements fit, use these.  
 - `textarea` -- a multi-line text submission field!  Re-sizeable, and can be initialized with desired size
     - `rows`, `cols` properties to configure initial size
     - `placeholder` property defines placeholder text, displayed until user has entered at least one character
+
+General:
+- Data from each input element is associated with its `name`, and the data with its `value`.  Each unique field should have its own `name` (but radio buttons that represent a choose-1-from-N selection share a `name`)
 
 #### Grouping elements
 - Label: `<label></label>` associates text with input element itself (when clicking text, triggers input)
