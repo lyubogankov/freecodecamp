@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Web Design Survey</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <h1 id="title">Web Design Survey</h1>
+        <p id="description">We are collecting data on up-and-coming-developer preferences!</p>
+        <form id="survey-form" action="">
+
+            <fieldset>
+                <label for="name" id="name-label">Please enter your name: <input type="text" id="name" placeholder="l33t h4x0r"></label>
+                <label for="email" id="email-label">Please enter your email: <input type="email" id="email" placeholder="yourname@provider.domain"></label>
+                <label for="number" id="number-label">How many hours have you been doing web dev? [0, 1000]: <input type="number" min="0" max="1000" id="number" placeholder="10"></label>
+            </fieldset>
+
+            <fieldset>
+                <label for="dropdown">
+                    Which HTML / CSS feature from the list below do you think is the <em>coolest</em>?
+                    <select id="dropdown">
+                        <option value="0" >Select One...</option>
+                        <option value="1">CSS Pseudoselectors, Element State</option>
+                        <option value="2">CSS Pseudoselectors, Element Attribute</option>
+                        <option value="3">HTML non-semantic wrapper elements (div, span)</option>
+                        <option value="4">HTML input element</option>
+                    </select>
+                </label>
+
+                <label for="textarea-poem">
+                    Please write a poem about web development: 
+                    <textarea id="textarea-poem" rows="5" cols="100" placeholder="Roses are red / Violets are blue / I like web dev / How about you?"></textarea>
+                </label>
+            </fieldset>
+
+            <input type="submit" value="Submit!" id="submit">
+        </form>
+    </body>
+</html>
