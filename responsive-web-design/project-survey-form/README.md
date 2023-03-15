@@ -29,7 +29,7 @@ Objective: Build an app that is functionally similar to https://survey-form.free
 
 12. :heavy_check_mark: Inside the `form` element, you should have a `select` dropdown element with an `id` of `dropdown` and at least two `option`s to choose from
 
-13. Inside the `form` element, you can select an option from a group of at least two radio buttons that are grouped using the `name` attribute
+13. :heavy_check_mark: Inside the `form` element, you can select an option from a group of at least two radio buttons that are grouped using the `name` attribute
 
 14. Inside the `form` element, you can select several fields from a series of checkboxes, each of which must have a `value` attribute
 

@@ -95,6 +95,7 @@ Do not have a specific semantic meaning.  If no other elements fit, use these.  
             - ex: `<input type="radio"> option1`
             - When we want to make a form with multiple buttons, of which only one can be active at a time, give all of the input-radio-buttons the same `name` attribute
             - Specify lookup value using `value` attribute
+            
         - `checkbox` for buttons for questions with more than one (or no) answer
         
         - `file`

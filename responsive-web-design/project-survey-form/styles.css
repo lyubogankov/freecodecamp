@@ -1,11 +1,38 @@
-input {
-    width: 100%;
+
+body {
+    font-family: sans-serif;
+    background-color: #3E3E3E;
+    color: #F0F0F0;
 }
 
-h1 {
-    color: green;
+h1, p {
+    text-align: center;
+}
+
+form {
+    width: 50%;
+    min-width: 615px;
+    max-width: 750px;
+    margin: 0 auto;
 }
 
 label {
+    margin: 1rem 0;
     display: block;
+}
+
+input, select {
+    width: 100%;
+    max-width: 200px;
+    display: block;
+}
+input, select, textarea {
+    margin-top: 0.25rem;
+}
+input[type="submit"] {
+    margin: 2rem auto 0 auto;
+}
+
+p[id="input-prompt"] {
+    text-align: left;
 }

@@ -8,13 +8,13 @@
     </head>
     <body>
         <h1 id="title">Web Design Survey</h1>
-        <p id="description">We are collecting data on up-and-coming-developer preferences!</p>
+        <p id="description">We are collecting data from up-and-coming-developers!</p>
         <form id="survey-form" action="">
 
             <fieldset>
-                <label for="name" id="name-label">Please enter your name: <input type="text" id="name" placeholder="l33t h4x0r"></label>
-                <label for="email" id="email-label">Please enter your email: <input type="email" id="email" placeholder="yourname@provider.domain"></label>
-                <label for="number" id="number-label">How many hours have you been doing web dev? [0, 1000]: <input type="number" min="0" max="1000" id="number" placeholder="10"></label>
+                <label for="name" id="name-label">Please enter your name: <input type="text" requred id="name" placeholder="l33t h4x0r"></label>
+                <label for="email" id="email-label">Please enter your email: <input type="email" requred id="email" placeholder="yourname@provider.domain"></label>
+                <label for="number" id="number-label">How many hours have you been doing web dev? [0, 1000]: <input type="number" required min="0" max="1000" id="number" placeholder="10"></label>
             </fieldset>
 
             <fieldset>
@@ -29,9 +29,17 @@
                     </select>
                 </label>
 
+                <p id="input-prompt">How do you feel about radio buttons?</p>
+                <label for="radio-lover"><input type="radio" name="radio-button-sentiment" value="liker" id="radio-lover" checked> I love 'em!</label>
+                <label for="radio-hater"><input type="radio" name="radio-button-sentiment" value="hater" id="radio-hater"> I hate 'em.</label>
+
+                <label>
+
+                </label>
+
                 <label for="textarea-poem">
                     Please write a poem about web development: 
-                    <textarea id="textarea-poem" rows="5" cols="100" placeholder="Roses are red / Violets are blue / I like web dev / How about you?"></textarea>
+                    <textarea id="textarea-poem" rows="3" cols="70" placeholder="Roses are red / Violets are blue / I like web dev / How about you?"></textarea>
                 </label>
             </fieldset>
 
