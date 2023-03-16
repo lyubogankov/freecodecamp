@@ -12,8 +12,8 @@
         <form id="survey-form" action="">
 
             <fieldset>
-                <label for="name" id="name-label">Please enter your name: <input type="text" requred id="name" placeholder="l33t h4x0r"></label>
-                <label for="email" id="email-label">Please enter your email: <input type="email" requred id="email" placeholder="yourname@provider.domain"></label>
+                <label for="name" id="name-label">Please enter your name: <input type="text" required id="name" placeholder="l33t h4x0r"></label>
+                <label for="email" id="email-label">Please enter your email: <input type="email" required id="email" placeholder="yourname@provider.domain"></label>
                 <label for="number" id="number-label">How many hours have you been doing web dev? [0, 1000]: <input type="number" required min="0" max="1000" id="number" placeholder="10"></label>
             </fieldset>
 
@@ -34,10 +34,10 @@
                 <label for="radio-hater"><input type="radio" name="radio-button-sentiment" value="hater" id="radio-hater"> I hate 'em.</label>
 
                 <p class="input-prompt">What programming topics interest you?  Select all that apply:</p>
-                <label for="interest-frontend"><input type="checkbox" id="interest-frontend"> Front-end web development</label>
-                <label for="interest-backend"><input type="checkbox" id="interest-backend"> Back-end web development</label>
-                <label for="interest-embedded"><input type="checkbox" id="interest-embedded"> Embedded programming / firmware</label>
-                <label for="interest-systems"><input type="checkbox" id="interest-systems"> System applications</label>
+                <label for="interest-frontend"><input type="checkbox" id="interest-frontend" value="frontend"> Front-end web development</label>
+                <label for="interest-backend"><input type="checkbox" id="interest-backend" value="backend"> Back-end web development</label>
+                <label for="interest-embedded"><input type="checkbox" id="interest-embedded" value="embedded"> Embedded programming / firmware</label>
+                <label for="interest-systems"><input type="checkbox" id="interest-systems" value="systems"> System applications</label>
 
                 <label for="textarea-poem" class="input-prompt">
                     Please write a poem about web development: 
