@@ -142,6 +142,7 @@ Background:
 - `background-color: brown` -> `burlywood`
     - the browser has built-in color lookup for basic colors
 - `background-image: url(...)`
+- `background: ...`
 
 Sizing:
 - `width: {width}`, can be specified in...

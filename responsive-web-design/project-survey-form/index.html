@@ -18,7 +18,7 @@
             </fieldset>
 
             <fieldset>
-                <label for="dropdown">
+                <label for="dropdown" class="input-prompt" id="fav-feature">
                     Which HTML / CSS feature from the list below do you think is the <em>coolest</em>?
                     <select id="dropdown">
                         <option value="0" >Select One...</option>
@@ -29,17 +29,19 @@
                     </select>
                 </label>
 
-                <p id="input-prompt">How do you feel about radio buttons?</p>
+                <p class="input-prompt">How do you feel about radio buttons?</p>
                 <label for="radio-lover"><input type="radio" name="radio-button-sentiment" value="liker" id="radio-lover" checked> I love 'em!</label>
                 <label for="radio-hater"><input type="radio" name="radio-button-sentiment" value="hater" id="radio-hater"> I hate 'em.</label>
 
-                <label>
+                <p class="input-prompt">What programming topics interest you?  Select all that apply:</p>
+                <label for="interest-frontend"><input type="checkbox" id="interest-frontend"> Front-end web development</label>
+                <label for="interest-backend"><input type="checkbox" id="interest-backend"> Back-end web development</label>
+                <label for="interest-embedded"><input type="checkbox" id="interest-embedded"> Embedded programming / firmware</label>
+                <label for="interest-systems"><input type="checkbox" id="interest-systems"> System applications</label>
 
-                </label>
-
-                <label for="textarea-poem">
+                <label for="textarea-poem" class="input-prompt">
                     Please write a poem about web development: 
-                    <textarea id="textarea-poem" rows="3" cols="70" placeholder="Roses are red / Violets are blue / I like web dev / How about you?"></textarea>
+                    <textarea required id="textarea-poem" rows="3" cols="70" placeholder="Roses are red / Violets are blue / I like web dev / How about you?"></textarea>
                 </label>
             </fieldset>
 

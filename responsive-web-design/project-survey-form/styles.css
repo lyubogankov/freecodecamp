@@ -1,8 +1,14 @@
 
 body {
     font-family: sans-serif;
-    background-color: #3E3E3E;
+    /* background-color: #3E3E3E; */
+    background: linear-gradient(180deg, #3E3E3E, 75%, #7D2FA3);
     color: #F0F0F0;
+    /* The background gradient was repeating :(
+       Looked around for solution: https://stackoverflow.com/a/2870024 */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
 }
 
 h1, p {
@@ -16,9 +22,24 @@ form {
     margin: 0 auto;
 }
 
+fieldset {
+    border: none;
+}
+
 label {
     margin: 1rem 0;
     display: block;
+}
+
+input, select, textarea {
+    margin-top: 0.25rem;
+    background-color: #5E5E5E;
+    border: none;
+    color: #F0F0F0;
+}
+::placeholder {
+    color: #F0F0F0;
+    opacity: 60%;
 }
 
 input, select {
@@ -26,13 +47,18 @@ input, select {
     max-width: 200px;
     display: block;
 }
-input, select, textarea {
-    margin-top: 0.25rem;
+input[type="radio"], input[type="checkbox"] {
+    display: unset;
+    width: unset;
 }
 input[type="submit"] {
     margin: 2rem auto 0 auto;
 }
 
-p[id="input-prompt"] {
+.input-prompt {
     text-align: left;
+    margin-top: 2rem;
+}
+label[id="fav-feature"] {
+    margin-top: 0.5rem;
 }

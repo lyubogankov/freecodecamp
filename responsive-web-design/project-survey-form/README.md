@@ -31,7 +31,7 @@ Objective: Build an app that is functionally similar to https://survey-form.free
 
 13. :heavy_check_mark: Inside the `form` element, you can select an option from a group of at least two radio buttons that are grouped using the `name` attribute
 
-14. Inside the `form` element, you can select several fields from a series of checkboxes, each of which must have a `value` attribute
+14. :heavy_check_mark: Inside the `form` element, you can select several fields from a series of checkboxes, each of which must have a `value` attribute
 
 15. :heavy_check_mark: Inside the `form` element, you are presented with a `textarea` for additional comments
 
