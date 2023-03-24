@@ -25,7 +25,13 @@ The "*selector*" *selects* which elements to apply the styling upon.
     - Pseudo-selectors:
         - by element's state (`element:state`)
             -   ex: `a:visited`
-        - by element's position in DOM (`element:last-of-type`)
+        - by element's position in DOM
+            - `element:last-of-type`
+            - `element::after`
+                - *creates* a new element that becomes the last child of selected element; we used it in cat photo gallery to push the last image from center to the left in 2-col mode (there are 9 images, so 1/3-cols are fine)
+        
+    - Universal selectors
+        - `*` selects all elements
     
 Selectors can be combined!
     - To have multiple selectors that all get the CSS rule
@@ -120,6 +126,11 @@ Can be expressed in...
 - `vh` is a special unit called **v**iewport **h**eight, and always equals 1% of the viewport's height
 - `vw` is a special unit called **v**iewport **w**idth, and always equals 1% of the viewport's width
 
+#### Angle
+`+` = clockwise, `-` = counter-clockwise
+- `deg`  degrees
+- `turn`  1 turn = 360deg
+
 #### Font Size
 - `rem` = root `em` = relative to font size of HTML element
     - Used in the `margin` property??  So it can be a general unit of size, then?
@@ -137,6 +148,7 @@ Text-related:
 - `color: {color}`;
     - By default, link that has not yet been clicked is blue and visited link is purple.
     - By specifying a link color, it'll always be that color regardless of whether it has been clicked!
+- `text-transform`
 
 Background:
 - `background-color: brown` -> `burlywood`
@@ -156,14 +168,44 @@ Sizing:
 - `min-height`
 - `max-height`
 
+Position:
+- `transform`
+    - From MDN page: "Only transformable elements can be `transform`ed" - most CSS box model elements
+
+- `gap`
+    Shorthand for setting `row`/`column-gap` individually.  Useful for flexboxes (CSS `display: flex`), grids (CSS `display: grid`), multi-column layouts (CSS `column-count`)
+
+Image-related:
+- `filter`
+
+    When working with images, it's easy to distort their original aspect ratio by locking or constraining width/height.
+
+    To prevent this / preserve the aspect ratio, we can set the `object-fit` property.  A value of `cover` will maintain the aspect ratio of the image and crop it to fit within the box if needed.
+
+Configuring display properties (blocking, inline)
+- `display: {value}}`
+    - `inline-block`
+        - Used this to make two blocking elements (`p`) behave as inline
+        - We ended up adjusting our HTML source: the `p` elements were previously on separate lines, but were moved to be on the same line with no space between them so that we could apply `width: 50%` on both (they are `text-align`ed to `left` and `right` respectively)
+    - `block`
+    - `flex` (CSS flexbox)
+
+#### CSS Box Model
+
 The "box model" of an element: `margin` is the outside, then a `border`, then `padding`, then the actual `element`
-- `margin-{left/right/top/bottom}: {length}`
+    - Margin controls space between elements/boxes (can be positive or negative)
+    - Border surrounds an element, can have 0+ width
+    - Padding controls space between element/its border
+
+- [`margin`](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)
     - Used this to center an element within the `body` by specifying `left/right: auto`
     - Specifies distance between it and other elements' margins
     - Can be negative!!
-- `margin: {length}` (shorthand property)
-    - *interesting - specifying `margin: auto` doesn't center the element top/bot; it stays at the top*
-- `margin: {top/bot} {left/right}` (shorthand)
+    - `margin-{left/right/top/bottom}: {length}`
+    - `margin: {length}` (shorthand)
+        - *interesting - specifying `margin: auto` doesn't center the element top/bot; it stays at the top*
+    - `margin: {top/bot} {left/right}` (shorthand)
+    - `margin: {top} {left/right} {bot}` (shorthand)
 
 - `border-color: {color}`
     - default color = `black`
@@ -176,6 +218,7 @@ The "box model" of an element: `margin` is the outside, then a `border`, then `p
     - `double`
 - `border{-{left/right/top/bottom}}: width style color` (shorthand)
 - `border: none` removes the border entirely
+- `border-radius` makes rectangles have rounded corners.  Can target all, corner pairs, each corner individually
 
 - `padding-{left/right/top/bottom}: {length-unit}`
     - Adds padding to the each individual side of the HTML element (between it and its parent)
@@ -184,19 +227,44 @@ The "box model" of an element: `margin` is the outside, then a `border`, then `p
 - `padding: {top&bot} {left&right}`
 
 - [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow)
-    - `box-shadow offsetX offsetY color`
+    - `box-shadow: offsetX offsetY color`
         - `offsetX/Y` are `length-unit`s
             - `X`: positive=right, negative=left
             - `Y`: positive=down,  negative=up
     - `box-shadow: offsetX offsetY {blurRadius} {spreadRadius} color`
         - Both of the values in curly-braces are optional, see MDN docs for explanation.  I don't have a good feel for what they do yet.
 
-Configuring display properties (blocking, inline)
-- `display: {value}}`
-    - `inline-block`
-        - Used this to make two blocking elements (`p`) behave as inline
-        - We ended up adjusting our HTML source: the `p` elements were previously on separate lines, but were moved to be on the same line with no space between them so that we could apply `width: 50%` on both (they are `text-align`ed to `left` and `right` respectively)
-    - `block`
+- When a child does not fit inside the parent, it "overflows".  The [`overflow`](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow) shorthand property (there are separate `x` and `y` properties for more fine-grained control) controls behavior.  Can be set to `visible`, `hidden`, `scroll`, or `auto` (which in FireFox does `scroll`).
+
+- `box-sizing` controls how the CSS box model interprets element `width`/`height`.
+    - By default, any padding/border added are in *addition to* the specified W/H (`box-sizing: content-box`)
+    - However, setting `box-sizing: border-box` changes the behavior and border/padding *are* accounted for within the specified W/H
+        - MDN's note: easier to lay out elements with `border-box` setting
+
+#### CSS `flexbox`es
+
+> Flexbox is a one-dimentional CSS layout that can control the way items are spaced out and aligned within a container.
+
+To create a `flexbox`, set `display: flexbox` on an element.  This element becomes the *flex container*, and direct children are *flex items*.
+
+Two axes:
+- main: defined by `flex-direction` property
+
+    The property values differ based on text direction of specified language: below is for L->R text direction (like English)
+    - `row`: default, horizontal flex axis with items L -> R
+    - `row-reverse`: horizontal R -> L
+    - `column`: vertical flex axis with items T -> B
+    - `column-reverse`: vertical B -> T
+
+    The `flex-wrap` property controls how flex items behave when they overflow the flex container
+    - `nowrap` (default) prevents wrapping and shrinks items to fit inside container
+    - `wrap` allows wrapping to next row/col
+
+    Positioning along main axis controlled by `justify-content` (affects space/position) (we used `center`)
+
+- cross: the axis that is not the one specified by `flex-direction`
+
+    `align-items` positions items along the cross axis -- its behavior varies in different scenarios, just check the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)
 
 
 ### Responsiveness (to different-sized web pages)
@@ -205,3 +273,17 @@ Example from cafe menu CSS module:
 - We set the menu's flavor/price text to be on the left/right side of the same inline block, each with width 50%.
 - When the width of the window gets small, the text line-wraps even though there is still space.  This happens because 50% of the parent's width is now too small to fit the whole line.
 - Observation: since the flavor text has more characters than the price text, we can allocate more relative width to the flavor, and the web page can go narrower before the flavor text line-wraps!
+
+
+### Cascade
+
+- From module "Learn the CSS Box Model by Building a Rothko Painting", we have three nested levels of `div`:
+    - frame
+    - canvas
+    - rectangles (`one`, `two`, `three`)
+    
+    To make it "like a Rothko", we added `filter: blur(2px)` to the parent canvas module.  This propagated to its children, the rectangles.
+
+    Then, the module instructed me to increase the blur radius of some of the boxes by `1px`.  I created a rule that targeted those rectangles and set `filter: blur(3px)`, but the module said this was not correct!  I changed it to `1px` and that was apparently the right answer.
+
+    The only explanation I can think of is that the `blur` *stacks* instead of being overriden by more specific selectors??
